@@ -2,6 +2,7 @@ import { fetchPhotos } from './fetch-photos';
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
+const loadButton = document.querySelector('.load-button');
 
 searchForm.addEventListener('submit', onFormSubmit);
 
@@ -9,10 +10,12 @@ function onFormSubmit(event) {
   event.preventDefault();
   const inputValue = event.currentTarget.elements.searchQuery.value;
 
-  return fetchPhotos(inputValue)
+  fetchPhotos(inputValue)
     .then(data => {
       console.log(data);
+
       createMarkup(data);
+      loadButton.classList.remove('visually-hidden');
     })
     .catch(error => console.log(error));
 }
@@ -51,5 +54,5 @@ function createMarkup(params) {
     )
     .join('');
 
-  gallery.innerHTML = markup;
+  gallery.insertAdjacentHTML('beforeend', markup);
 }
