@@ -1,7 +1,9 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchPhotos } from './fetch-photos';
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
+const inputEl = document.querySelector('[name="searchQuery"]');
 const loadButton = document.querySelector('.load-button');
 
 searchForm.addEventListener('submit', onFormSubmit);
@@ -13,9 +15,16 @@ function onFormSubmit(event) {
   fetchPhotos(inputValue)
     .then(data => {
       console.log(data);
+      if (data.hits.length === 0) {
+        return Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        );
+      }
 
       createMarkup(data);
+
       loadButton.classList.remove('visually-hidden');
+      inputEl.value = '';
     })
     .catch(error => console.log(error));
 }
