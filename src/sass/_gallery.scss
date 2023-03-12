@@ -1,6 +1,7 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  margin-right: auto;
 
   margin-left: calc(-1 * $gap);
   margin-top: calc(-1 * $gap);

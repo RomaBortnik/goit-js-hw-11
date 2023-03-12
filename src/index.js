@@ -24,7 +24,7 @@ loadButton.addEventListener('click', onLoadButtonClick);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  inputValue = event.currentTarget.elements.searchQuery.value;
+  const inputValue = event.currentTarget.elements.searchQuery.value;
   if (inputDefaultValue === inputValue) {
     return;
   }
