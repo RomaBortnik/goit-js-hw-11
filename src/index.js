@@ -26,7 +26,7 @@ function onFormSubmit(event) {
   event.preventDefault();
 
   const inputValue = event.currentTarget.elements.searchQuery.value;
-  if (inputDefaultValue === inputValue) {
+  if (inputDefaultValue === inputValue || inputValue === '') {
     return;
   }
   inputDefaultValue = inputValue;
