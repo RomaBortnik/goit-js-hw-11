@@ -62,9 +62,6 @@ function onLoadButtonClick(event) {
       lightbox.refresh();
       updateSearchParams(data);
 
-      const { height: cardHeight } =
-        gallery.firstElementChild.getBoundingClientRect();
-
       window.scrollBy({
         top: window.innerHeight - 125,
         behavior: 'smooth',
