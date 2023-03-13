@@ -13,11 +13,9 @@
   &__photo-card {
     width: 100%;
 
-    &:not(:last-child) {
-      @media screen and (max-width: 767px) {
-        margin-bottom: 24px;
-        padding-bottom: 2px;
-      }
+    @media screen and (max-width: 767px) {
+      margin-bottom: 24px;
+      padding-bottom: 2px;
     }
 
     @media screen and (min-width: 768px) {
