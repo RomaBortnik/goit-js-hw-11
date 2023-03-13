@@ -2,6 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // import InfiniteScroll from 'infinite-scroll';
+// import InfiniteAjaxScroll from '@webcreate/infinite-ajax-scroll';
 import { fetchPhotos } from './fetch-photos';
 export let countOfPage = 1;
 export let countPerPage = 40;
@@ -60,6 +61,16 @@ function onLoadButtonClick(event) {
       createMarkup(data);
       lightbox.refresh();
       updateSearchParams(data);
+
+      const { height: cardHeight } =
+        gallery.firstElementChild.getBoundingClientRect();
+
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+
+      console.log(gallery.firstElementChild.getBoundingClientRect());
 
       if (totalHits === data.totalHits) {
         loadButton.classList.add('visually-hidden');
