@@ -94,8 +94,9 @@ function createMarkup(params) {
         comments,
         downloads,
       }) => {
-        return `<div class="gallery__photo-card"><div class="gallery__thumb"><a class = "gallery__link" href = ${largeImageURL}>
-        <img src=${webformatURL} alt="${tags}" loading="lazy" /></a>
+        return `<div class="gallery__photo-card">
+        <a class = "gallery__link" href = ${largeImageURL}><div class="gallery__thumb">
+        <img src=${webformatURL} alt="${tags}" loading="lazy" />
    </div>
   <div class="gallery__info">
     <p class="gallery__info-item">
@@ -111,6 +112,7 @@ function createMarkup(params) {
       <b>Downloads:</b>${downloads}
     </p>
   </div>
+  </a>
 </div>`;
       }
     )
